@@ -30,12 +30,11 @@ const Chat = {
             }
 
             const time = options.time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const senderHtml = options.sender ? `<div class="chat-message-sender">${options.sender}</div>` : '';
 
             msgEl.innerHTML = `
                 ${type === 'incoming' ? avatarHtml : ''}
                 <div class="chat-message-bubble">
-                    ${senderHtml}
+                    ${options.sender ? '<div class="chat-message-sender"></div>' : ''}
                     <div class="chat-message-text"></div>
                     <div class="chat-message-time">${time}</div>
                 </div>
@@ -43,6 +42,9 @@ const Chat = {
             `;
 
             // Use textContent to prevent XSS vulnerability
+            if (options.sender) {
+                msgEl.querySelector('.chat-message-sender').textContent = options.sender;
+            }
             msgEl.querySelector('.chat-message-text').textContent = text;
 
             messagesContainer.appendChild(msgEl);
