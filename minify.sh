@@ -1,4 +1,17 @@
 #!/bin/bash
+# ==============================================================================
+# FrankUI - Standalone Build Script
+# ==============================================================================
+# This script bundles and compiles the FrankUI assets locally within the 
+# repository directory structure. It performs the following steps:
+# 1. Combines all Javascript source files (starting with all.js, followed by 
+#    individual components) into a temporary bundle.
+# 2. Minifies the Javascript using esbuild (or falls back to a safe Perl regex 
+#    compiler if esbuild is not available).
+# 3. Combines and minifies all CSS files (starting with frank.css and adding 
+#    component styles).
+# 4. Cleans up temporary files automatically on exit.
+# ==============================================================================
 
 # Directories
 FRAMEWORK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
