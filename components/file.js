@@ -139,13 +139,21 @@ const FileUploader = {
                         item.className = 'file-preview-item';
                         item.dataset.hash = hash;
                         
+                        let mediaHtml = '';
                         if (file.type.startsWith('image/')) {
-                            item.innerHTML = `<img src="${event.target.result}">`;
+                            const result = event.target.result;
+                            if (typeof result === 'string' && result.startsWith('data:image/')) {
+                                mediaHtml = `<img src="${result}">`;
+                            }
                         } else {
-                            item.innerHTML = getFileIcon(file.name);
+                            mediaHtml = getFileIcon(file.name);
                         }
-                        item.innerHTML += `<p style="font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 4px 0 0 0;">${FrankUI.escapeHtml(file.name)}</p>
-                                           <button class="remove-btn" type="button" onclick="FileUploader.removeFile('${hash}', this)">×</button>`;
+
+                        item.innerHTML = `
+                            ${mediaHtml}
+                            <p style="font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 4px 0 0 0;">${FrankUI.escapeHtml(file.name)}</p>
+                            <button class="remove-btn" type="button" onclick="FileUploader.removeFile('${hash}', this)">×</button>
+                        `;
                         previewContainer.appendChild(item);
                     };
                     reader.readAsDataURL(file);

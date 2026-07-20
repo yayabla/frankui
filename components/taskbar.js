@@ -253,7 +253,7 @@ const Taskbar = {
             const text = noteInput.value.trim();
             if (text) {
                 const li = document.createElement('li');
-                li.innerHTML = `${text} <span class="delete-note">×</span>`;
+                li.innerHTML = `${FrankUI.escapeHtml(text)} <span class="delete-note">×</span>`;
                 notesList.appendChild(li);
                 noteInput.value = '';
                 
@@ -771,7 +771,7 @@ const Taskbar = {
             
             // Retain other customizer values if any
             let css = `:root { --primary-color: ${color} !important; }`;
-            styleTag.innerHTML = css;
+            styleTag.textContent = css;
         };
     },
 
@@ -831,7 +831,7 @@ const Taskbar = {
                 } else {
                     viewport.innerHTML = `
                         <div style="padding: 20px; text-align: center; color: #333;">
-                            <h3 style="margin-bottom: 10px;">Successfully Connected to ${hostname}</h3>
+                            <h3 style="margin-bottom: 10px;">Successfully Connected to ${FrankUI.escapeHtml(hostname)}</h3>
                             <p style="font-size: 13px; color: #666; line-height: 1.5;">This is a sandbox viewport simulation. The mock website is rendering inside a safe environment.</p>
                             <div class="card" style="margin-top: 15px; text-align: left; padding: 10px; background: #f8f9fa;">
                                 <b>Domain details:</b><br>
