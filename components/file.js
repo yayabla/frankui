@@ -139,21 +139,44 @@ const FileUploader = {
                         item.className = 'file-preview-item';
                         item.dataset.hash = hash;
                         
-                        let mediaHtml = '';
+                        // Append media preview (image or icon)
                         if (file.type.startsWith('image/')) {
+                            const img = document.createElement('img');
                             const result = event.target.result;
                             if (typeof result === 'string' && result.startsWith('data:image/')) {
-                                mediaHtml = `<img src="${result}">`;
+                                img.src = result;
                             }
+                            item.appendChild(img);
                         } else {
-                            mediaHtml = getFileIcon(file.name);
+                            const iconWrapper = document.createElement('div');
+                            iconWrapper.innerHTML = getFileIcon(file.name);
+                            const svgNode = iconWrapper.firstElementChild;
+                            if (svgNode) {
+                                item.appendChild(svgNode);
+                            }
                         }
 
-                        item.innerHTML = `
-                            ${mediaHtml}
-                            <p style="font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 4px 0 0 0;">${FrankUI.escapeHtml(file.name)}</p>
-                            <button class="remove-btn" type="button" onclick="FileUploader.removeFile('${hash}', this)">×</button>
-                        `;
+                        // Append file name paragraph
+                        const p = document.createElement('p');
+                        p.style.fontSize = '10px';
+                        p.style.overflow = 'hidden';
+                        p.style.whiteSpace = 'nowrap';
+                        p.style.textOverflow = 'ellipsis';
+                        p.style.margin = '4px 0 0 0';
+                        p.textContent = file.name;
+                        item.appendChild(p);
+
+                        // Append remove button
+                        const removeBtn = document.createElement('button');
+                        removeBtn.className = 'remove-btn';
+                        removeBtn.type = 'button';
+                        removeBtn.textContent = '×';
+                        removeBtn.onclick = (e) => {
+                            e.preventDefault();
+                            FileUploader.removeFile(hash, removeBtn);
+                        };
+                        item.appendChild(removeBtn);
+
                         previewContainer.appendChild(item);
                     };
                     reader.readAsDataURL(file);
