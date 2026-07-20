@@ -910,7 +910,7 @@ const Taskbar = {
 
                 btn.innerHTML = `
                     <span class="task-btn-icon">${iconChar}</span>
-                    <span class="task-btn-title">${title}</span>
+                    <span class="task-btn-title">${escapeHtml(title)}</span>
                     <span class="task-btn-indicator"></span>
                 `;
                 
