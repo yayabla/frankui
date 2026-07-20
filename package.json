@@ -6,6 +6,6 @@
     "build": "./minify.sh"
   },
   "devDependencies": {
-    "esbuild": "^0.20.0"
+    "esbuild": ">=0.25.0"
   }
 }
