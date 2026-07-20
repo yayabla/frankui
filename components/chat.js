@@ -41,12 +41,26 @@ const Chat = {
             let avatarEl = null;
             if (options.avatar) {
                 const avatarUrl = String(options.avatar).trim();
-                // Block javascript: and other executable protocol schemes
-                if (!/^\s*(javascript|data|vbscript):/i.test(avatarUrl)) {
+                let safeAvatarUrl = null;
+                try {
+                    const parsed = new URL(avatarUrl, window.location.href);
+                    const isHttp = parsed.protocol === 'http:' || parsed.protocol === 'https:';
+                    const isRelativeToSameOrigin = !/^[a-zA-Z][a-zA-Z\d+\-\.]*:/.test(avatarUrl) && !avatarUrl.startsWith('//');
+                    if (isHttp && (parsed.origin !== 'null') && (isRelativeToSameOrigin || parsed.origin !== '')) {
+                        // Allow http/https absolute URLs and same-origin relative URLs
+                        if (isRelativeToSameOrigin || parsed.origin === window.location.origin || /^https?:\/\//i.test(avatarUrl)) {
+                            safeAvatarUrl = parsed.href;
+                        }
+                    }
+                } catch (err) {
+                    // Invalid URL; ignore avatar
+                }
+
+                if (safeAvatarUrl) {
                     avatarEl = document.createElement('img');
                     avatarEl.className = 'chat-avatar';
                     avatarEl.alt = 'avatar';
-                    avatarEl.src = avatarUrl;
+                    avatarEl.src = safeAvatarUrl;
                 }
             } else if (options.initials) {
                 avatarEl = document.createElement('div');
