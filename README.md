@@ -2,6 +2,8 @@
 
 > Frankly, a better UI framework. Dependency-free, modern, and highly modular layout with plug-and-play CSS & JS components.
 
+🌐 **Website:** [frankui.com](https://frankui.com)
+
 FrankUI is built to be ultra-lightweight, blazing fast, and incredibly easy to use. No complex build tools or configuration required—just plug it in and start building beautiful interfaces.
 
 ---
