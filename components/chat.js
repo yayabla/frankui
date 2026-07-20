@@ -21,30 +21,46 @@ const Chat = {
             const msgEl = document.createElement('div');
             msgEl.className = `chat-message ${type}`;
 
-            // Optional avatar/profile details
-            let avatarHtml = '';
-            if (options.avatar) {
-                avatarHtml = `<img src="${options.avatar}" class="chat-avatar" alt="avatar">`;
-            } else if (options.initials) {
-                avatarHtml = `<div class="chat-avatar-initials">${options.initials}</div>`;
-            }
-
-            const time = options.time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
+            // Build the static bubble HTML structure
             msgEl.innerHTML = `
-                ${type === 'incoming' ? avatarHtml : ''}
                 <div class="chat-message-bubble">
-                    ${options.sender ? '<div class="chat-message-sender"></div>' : ''}
                     <div class="chat-message-text"></div>
-                    <div class="chat-message-time">${time}</div>
+                    <div class="chat-message-time"></div>
                 </div>
-                ${type === 'outgoing' ? avatarHtml : ''}
             `;
 
-            // Use textContent to prevent XSS vulnerability
+            // Render sender element dynamically if provided
             if (options.sender) {
-                msgEl.querySelector('.chat-message-sender').textContent = options.sender;
+                const senderEl = document.createElement('div');
+                senderEl.className = 'chat-message-sender';
+                senderEl.textContent = options.sender;
+                msgEl.querySelector('.chat-message-bubble').insertBefore(senderEl, msgEl.querySelector('.chat-message-text'));
             }
+
+            // Render and insert avatar element dynamically
+            let avatarEl = null;
+            if (options.avatar) {
+                avatarEl = document.createElement('img');
+                avatarEl.className = 'chat-avatar';
+                avatarEl.alt = 'avatar';
+                avatarEl.src = options.avatar;
+            } else if (options.initials) {
+                avatarEl = document.createElement('div');
+                avatarEl.className = 'chat-avatar-initials';
+                avatarEl.textContent = options.initials;
+            }
+
+            if (avatarEl) {
+                if (type === 'incoming') {
+                    msgEl.insertBefore(avatarEl, msgEl.firstChild);
+                } else {
+                    msgEl.appendChild(avatarEl);
+                }
+            }
+
+            // Populate the text and time fields safely
+            const time = options.time || new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            msgEl.querySelector('.chat-message-time').textContent = time;
             msgEl.querySelector('.chat-message-text').textContent = text;
 
             messagesContainer.appendChild(msgEl);
