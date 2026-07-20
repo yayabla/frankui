@@ -13,7 +13,7 @@ const Bull = {
         el.dataset.rendered = 'true';
 
         const type = el.getAttribute('data-type') || 'info';
-        const size = el.getAttribute('data-size') || '18';
+        const size = parseFloat(el.getAttribute('data-size')) || 18;
         
         let svgHtml = '';
 
@@ -45,7 +45,7 @@ const Bull = {
             </svg>`;
         } else if (type === 'bulb') {
             // Glowing bulb indicator
-            const colorClass = el.getAttribute('data-color-class') || 'bull-color-success';
+            const colorClass = (el.getAttribute('data-color-class') || 'bull-color-success').replace(/[^a-zA-Z0-9_-]/g, '');
             svgHtml = `<svg viewBox="0 0 24 24" width="${size}" height="${size}" class="bull-svg bull-bulb-svg">
                 <circle cx="12" cy="12" r="8" class="bull-bg ${colorClass} bull-glow" />
             </svg>`;

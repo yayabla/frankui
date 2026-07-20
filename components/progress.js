@@ -5,8 +5,8 @@ const Progress = {
             el.dataset.initialized = 'true';
 
             const type = el.dataset.type || 'bar';
-            const value = el.dataset.value || 0;
-            const buffer = el.dataset.buffer || 0;
+            const value = parseFloat(el.dataset.value) || 0;
+            const buffer = parseFloat(el.dataset.buffer) || 0;
 
             el.className = `progress ${type}`;
 

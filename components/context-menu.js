@@ -29,8 +29,8 @@ const ContextMenu = {
         menuTemplate.querySelectorAll('li').forEach(item => {
             const menuItem = document.createElement('div');
             menuItem.className = 'context-menu-item';
-            menuItem.innerHTML = `<span>${item.dataset.icon ? `<span class="icon">${item.dataset.icon}</span>` : ''}${item.textContent}</span>
-                                  ${item.dataset.hotkey ? `<span class="hotkey">${item.dataset.hotkey}</span>` : ''}`;
+            menuItem.innerHTML = `<span>${item.dataset.icon ? `<span class="icon">${FrankUI.escapeHtml(item.dataset.icon)}</span>` : ''}${FrankUI.escapeHtml(item.textContent)}</span>
+                                  ${item.dataset.hotkey ? `<span class="hotkey">${FrankUI.escapeHtml(item.dataset.hotkey)}</span>` : ''}`;
             menuItem.onclick = item.onclick;
             menu.appendChild(menuItem);
         });

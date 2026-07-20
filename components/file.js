@@ -144,7 +144,7 @@ const FileUploader = {
                         } else {
                             item.innerHTML = getFileIcon(file.name);
                         }
-                        item.innerHTML += `<p style="font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 4px 0 0 0;">${file.name}</p>
+                        item.innerHTML += `<p style="font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin: 4px 0 0 0;">${FrankUI.escapeHtml(file.name)}</p>
                                            <button class="remove-btn" type="button" onclick="FileUploader.removeFile('${hash}', this)">×</button>`;
                         previewContainer.appendChild(item);
                     };

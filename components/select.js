@@ -150,7 +150,7 @@ const Select = {
             const selectedOption = sel.options[sel.selectedIndex];
             const text = selectedOption ? selectedOption.textContent : (sel.getAttribute('data-placeholder') || 'Choose an option...');
             const arrow = dropdown.style.display === 'block' ? '▲' : '▼';
-            header.innerHTML = `<span>${text}</span><span class="fancy-select-arrow">${arrow}</span>`;
+            header.innerHTML = `<span>${FrankUI.escapeHtml(text)}</span><span class="fancy-select-arrow">${arrow}</span>`;
         };
 
         // Function to rebuild the custom options list
@@ -339,7 +339,7 @@ const Select = {
                 if (opt.selected) {
                     const tag = document.createElement('span');
                     tag.className = 'fancy-select-tag';
-                    tag.innerHTML = `${opt.textContent} <span class="fancy-select-tag-remove">&times;</span>`;
+                    tag.innerHTML = `${FrankUI.escapeHtml(opt.textContent)} <span class="fancy-select-tag-remove">&times;</span>`;
                     
                     // Handle remove click
                     tag.querySelector('.fancy-select-tag-remove').addEventListener('click', (e) => {

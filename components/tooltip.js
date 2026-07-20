@@ -45,7 +45,7 @@ const Tooltip = {
             
             const isHtml = target.getAttribute('data-tooltip-html') === 'true';
             if (isHtml) {
-                tooltip.innerHTML = message;
+                tooltip.innerHTML = FrankUI.sanitizeHtml(message);
                 tooltip.classList.add('html-content');
             } else {
                 tooltip.textContent = message;

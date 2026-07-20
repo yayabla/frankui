@@ -51,7 +51,7 @@ const Notify = {
         const contentDiv = document.createElement('div');
         contentDiv.className = 'notify-content';
         if (options.htmlContent) {
-            contentDiv.innerHTML = content;
+            contentDiv.innerHTML = FrankUI.sanitizeHtml(content);
         } else {
             contentDiv.textContent = content;
         }

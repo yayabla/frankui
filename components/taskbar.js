@@ -5,14 +5,6 @@ function safeEval(expr) {
     return Function(`"use strict"; return (${expr})`)();
 }
 
-function escapeHtml(str) {
-    if (typeof str !== 'string') return '';
-    return str.replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;')
-              .replace(/'/g, '&#039;');
-}
 
 const Taskbar = {
     pinnedApps: [
@@ -797,7 +789,7 @@ const Taskbar = {
                 input.value = url;
             }
 
-            viewport.innerHTML = `<div style="padding: 10px; text-align: center; color: #666; font-size: 13px;">🌐 Mock Loading <b>${escapeHtml(url)}</b>...</div>`;
+            viewport.innerHTML = `<div style="padding: 10px; text-align: center; color: #666; font-size: 13px;">🌐 Mock Loading <b>${FrankUI.escapeHtml(url)}</b>...</div>`;
             
             setTimeout(() => {
                 let hostname = '';
@@ -910,7 +902,7 @@ const Taskbar = {
 
                 btn.innerHTML = `
                     <span class="task-btn-icon">${iconChar}</span>
-                    <span class="task-btn-title">${escapeHtml(title)}</span>
+                    <span class="task-btn-title">${FrankUI.escapeHtml(title)}</span>
                     <span class="task-btn-indicator"></span>
                 `;
                 

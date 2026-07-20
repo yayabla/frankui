@@ -1,12 +1,3 @@
-function escapeHtml(str) {
-    if (typeof str !== 'string') return '';
-    return str.replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;')
-              .replace(/'/g, '&#039;');
-}
-
 const Window = {
     init: function() {
         document.querySelectorAll('.window').forEach(win => {
@@ -355,8 +346,8 @@ const Window = {
         win.style.top = y;
         win.style.position = 'absolute';
 
-        const safeTitle = escapeHtml(title);
-        const safeContent = options.htmlContent !== false ? content : escapeHtml(content);
+        const safeTitle = FrankUI.escapeHtml(title);
+        const safeContent = options.htmlContent !== false ? content : FrankUI.escapeHtml(content);
 
         win.innerHTML = `
             <div class="window-header">
@@ -411,7 +402,7 @@ const Window = {
                 }
             })
             .catch(err => {
-                contentDiv.innerHTML = `<div style="padding: 20px; color: var(--alert-color); font-weight: 600;">Failed to load content: ${escapeHtml(err.message)}</div>`;
+                contentDiv.innerHTML = `<div style="padding: 20px; color: var(--alert-color); font-weight: 600;">Failed to load content: ${FrankUI.escapeHtml(err.message)}</div>`;
             });
 
         return win;
