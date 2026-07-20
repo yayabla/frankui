@@ -1,0 +1,35 @@
+.frank-tooltip {
+    position: absolute;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 10000;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.frank-tooltip.active {
+    opacity: 1;
+}
+
+/* Color variants - Simplified subclass composition */
+.frank-tooltip.primary { background-color: var(--primary-color); color: #ffffff; }
+.frank-tooltip.success { background-color: var(--success-color); color: #ffffff; }
+.frank-tooltip.warning { background-color: var(--warning-color); color: #ffffff; }
+.frank-tooltip.alert { background-color: var(--alert-color); color: #ffffff; }
+.frank-tooltip.info { background-color: var(--info-color); color: #ffffff; }
+.frank-tooltip.secondary { background-color: var(--secondary-color); color: var(--text-color); }
+
+/* HTML Content Tooltip Formatting */
+.frank-tooltip.html-content {
+    white-space: normal;
+    word-break: break-word;
+    max-width: 260px;
+    line-height: 1.4;
+    padding: 8px 12px;
+}
+

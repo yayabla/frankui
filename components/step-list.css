@@ -1,0 +1,41 @@
+.step-list {
+    list-style: none;
+    padding-left: 30px;
+    position: relative;
+}
+
+.step-list::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--secondary-color);
+}
+
+.step-list li {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.step-list li::before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.step-list {
+    counter-reset: step-counter;
+}

@@ -1,0 +1,96 @@
+/* Image Utility Components */
+
+/* 1. Fluid / Responsive Images */
+.img-fluid {
+    max-width: 100% !important;
+    height: auto !important;
+    display: inline-block;
+}
+
+/* 2. Image Thumbnail Frame */
+.img-thumbnail {
+    padding: .25rem !important;
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--secondary-color) !important;
+    border-radius: 4px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* 3. Image Layout Container */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .3s ease-in-out;
+}
+
+/* Modifier: Zoom hover effect */
+.img-container.zoom:hover img {
+    transform: scale(1.08);
+}
+
+/* 4. Image Hover Overlay content */
+.img-container .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #ffffff !important;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease-in-out;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.img-container:hover .image-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-container .image-overlay h1,
+.img-container .image-overlay h2,
+.img-container .image-overlay h3,
+.img-container .image-overlay h4,
+.img-container .image-overlay h5,
+.img-container .image-overlay h6 {
+    color: #ffffff !important;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.img-container .image-overlay p {
+    color: #eeeeee !important;
+    margin-bottom: 0;
+}
+
+/* Modifier: Slide Up Transition overlay */
+.img-container.slide-up .image-overlay {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+}
+
+.img-container.slide-up:hover .image-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}

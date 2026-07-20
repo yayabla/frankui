@@ -1,0 +1,150 @@
+/* Metro Tile Component CSS */
+
+.tile {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    overflow: hidden;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: var(--font-name);
+}
+
+/* Size Modifiers */
+.tile.tile-large {
+    width: 250px;
+    height: 120px;
+}
+.tile.tile-square-large {
+    width: 250px;
+    height: 250px;
+}
+.tile.tile-small {
+    width: 58px;
+    height: 58px;
+}
+
+/* Contents */
+.tile .tile-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: var(--alert-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.tile .tile-label {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    z-index: 5;
+}
+
+.tile .tile-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2rem;
+    z-index: 4;
+}
+
+/* Hover effect */
+.tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+.tile:hover::before {
+    opacity: 1;
+}
+
+/* --- Slide Effect --- */
+.tile.slide .tile-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    transition: top 0.6s cubic-bezier(0.1, 0.9, 0.2, 1);
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.tile.slide .tile-slide.active {
+    top: 0;
+}
+
+.tile.slide .tile-slide.out {
+    top: -100%;
+}
+
+/* --- Flip Effect --- */
+.tile.flip {
+    background-color: transparent !important;
+    perspective: 1000px;
+}
+
+.tile.flip .tile-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.1, 0.9, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.tile.flip.flipped .tile-card {
+    transform: rotateY(180deg);
+}
+
+.tile.flip .tile-front, 
+.tile.flip .tile-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile.flip .tile-front {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tile.flip .tile-back {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transform: rotateY(180deg);
+    border: 1px solid var(--secondary-color);
+}

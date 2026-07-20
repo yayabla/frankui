@@ -1,0 +1,706 @@
+/* Taskbar Component Stylesheet */
+
+:root {
+    --tb-bg: rgba(243, 243, 243, 0.75);
+    --tb-border: rgba(0, 0, 0, 0.1);
+    --tb-color: #333;
+    --tb-hover: rgba(0, 0, 0, 0.08);
+    --tb-active: rgba(0, 0, 0, 0.12);
+    --tb-flyout-bg: rgba(249, 249, 249, 0.85);
+    --tb-flyout-border: rgba(0, 0, 0, 0.12);
+    --tb-flyout-color: #333;
+    --tb-widget-bg: rgba(0, 0, 0, 0.04);
+    --tb-widget-border: rgba(0, 0, 0, 0.08);
+    --tb-search-bg: rgba(255, 255, 255, 0.8);
+    --tb-search-border: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+    --tb-bg: rgba(30, 30, 30, 0.75);
+    --tb-border: rgba(255, 255, 255, 0.1);
+    --tb-color: #fff;
+    --tb-hover: rgba(255, 255, 255, 0.15);
+    --tb-active: rgba(255, 255, 255, 0.2);
+    --tb-flyout-bg: rgba(32, 32, 32, 0.85);
+    --tb-flyout-border: rgba(255, 255, 255, 0.12);
+    --tb-flyout-color: #fff;
+    --tb-widget-bg: rgba(0, 0, 0, 0.15);
+    --tb-widget-border: rgba(255, 255, 255, 0.08);
+    --tb-search-bg: rgba(0, 0, 0, 0.2);
+    --tb-search-border: rgba(255, 255, 255, 0.1);
+}
+
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: var(--tb-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--tb-border);
+    z-index: 2000;
+    box-sizing: border-box;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.taskbar-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Left Section: Start and Widgets Buttons */
+.taskbar-left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.taskbar-start-btn,
+.taskbar-widgets-btn {
+    background: transparent;
+    border: none;
+    color: var(--tb-color);
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.taskbar-start-btn:hover,
+.taskbar-widgets-btn:hover {
+    background: var(--tb-hover);
+    transform: scale(1.05);
+}
+
+.taskbar-start-btn:active,
+.taskbar-widgets-btn:active {
+    transform: scale(0.95);
+}
+
+.start-icon {
+    font-size: 20px;
+}
+
+/* Center Section: Task List and Pins */
+.taskbar-center {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    overflow-x: auto;
+    height: 100%;
+    scrollbar-width: none; /* Hide scrollbar for clean OS look */
+}
+.taskbar-center::-webkit-scrollbar {
+    display: none;
+}
+
+.task-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 10px;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    min-width: 36px;
+    box-sizing: border-box;
+}
+
+.task-btn:hover {
+    background: var(--tb-hover);
+}
+
+.task-btn-icon {
+    font-size: 20px;
+}
+
+.task-btn-title {
+    font-size: 12px;
+    color: var(--tb-color);
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Active indicator strip at the bottom */
+.task-btn-indicator {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.task-btn.running .task-btn-indicator {
+    width: 6px;
+}
+
+.task-btn.active .task-btn-indicator {
+    width: 16px;
+}
+
+.task-btn.active {
+    background: var(--tb-active);
+}
+
+/* Right Section: System Tray & Clock */
+.taskbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.system-tray {
+    display: flex;
+    gap: 4px;
+    border-right: 1px solid var(--tb-border);
+    padding-right: 8px;
+}
+
+.tray-item {
+    background: transparent;
+    border: none;
+    color: var(--tb-color);
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.tray-item:hover {
+    background: var(--tb-hover);
+}
+
+.taskbar-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--tb-color);
+    transition: all 0.2s ease;
+}
+
+.taskbar-clock:hover {
+    background: var(--tb-hover);
+}
+
+.clock-time {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.clock-date {
+    font-size: 9px;
+    opacity: 0.8;
+}
+
+/* Common Flyout Styles */
+.taskbar-flyout {
+    position: absolute;
+    background: var(--tb-flyout-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--tb-flyout-border);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 2500;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+    color: var(--tb-flyout-color);
+    box-sizing: border-box;
+}
+
+.taskbar-flyout.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.active-tray-btn {
+    background: var(--tb-active) !important;
+}
+
+/* 1. Start Menu Flyout */
+.start-menu-panel {
+    width: 320px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-menu-header {
+    margin-bottom: 12px;
+}
+
+.start-menu-search {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--tb-search-border);
+    background: var(--tb-search-bg);
+    color: var(--tb-flyout-color);
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.start-menu-search:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+.start-menu-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.start-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.start-app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.start-app-item:hover {
+    background: var(--tb-hover);
+    transform: translateY(-2px);
+}
+
+.start-app-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.start-app-title {
+    font-size: 10px;
+    text-align: center;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.start-recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.recent-item {
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.recent-item:hover {
+    background: var(--tb-hover);
+}
+
+.start-menu-footer {
+    border-top: 1px solid var(--tb-border);
+    margin-top: 15px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    font-size: 16px;
+}
+
+.user-name {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.start-power-btn {
+    background: transparent;
+    border: none;
+    color: var(--tb-color);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.start-power-btn:hover {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+/* 2. Widgets Panel Flyout */
+.widgets-panel {
+    width: 290px;
+    padding: 15px;
+}
+
+.widgets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--tb-border);
+    padding-bottom: 6px;
+}
+
+.widgets-header h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.widgets-time-header {
+    font-size: 10px;
+    opacity: 0.6;
+}
+
+.widgets-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 380px;
+    overflow-y: auto;
+}
+
+.widget-card {
+    background: var(--tb-widget-bg);
+    border: 1px solid var(--tb-widget-border);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.widget-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 6px;
+}
+
+/* Weather Widget */
+.weather-widget {
+    background: linear-gradient(135deg, rgba(3, 105, 161, 0.2), rgba(0, 120, 215, 0.1));
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-temp {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-city {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.weather-desc {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+/* Resource Performance Widget */
+.resource-item {
+    font-size: 11px;
+}
+
+.resource-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.resource-bar {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.resource-progress {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Notes Widget */
+.notes-input-wrapper {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.new-note-input {
+    flex-grow: 1;
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--tb-widget-border);
+    background: var(--tb-search-bg);
+    color: var(--tb-flyout-color);
+    font-size: 11px;
+    outline: none;
+}
+
+.add-note-btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.notes-list li {
+    font-size: 11px;
+    padding: 4px 6px;
+    background: var(--tb-widget-bg);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-note {
+    cursor: pointer;
+    color: #dc3545;
+    font-weight: bold;
+    padding: 0 4px;
+}
+
+/* 3. Volume Panel */
+.volume-panel {
+    width: 200px;
+    padding: 10px;
+}
+
+.vol-header {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.vol-control-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vol-slider {
+    flex-grow: 1;
+    min-width: 0;
+    width: 100%;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* 4. Network Panel */
+.network-panel {
+    width: 220px;
+    padding: 10px;
+}
+
+.net-header {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--tb-border);
+    padding-bottom: 4px;
+}
+
+.net-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.net-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.net-item:hover {
+    background: var(--tb-hover);
+}
+
+.net-item.active {
+    background: rgba(0, 120, 215, 0.2);
+    border-left: 3px solid var(--primary-color);
+}
+
+.net-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.net-name {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.net-status {
+    font-size: 9px;
+    opacity: 0.6;
+}
+
+/* 5. Calendar Panel */
+.calendar-panel {
+    width: 240px;
+    padding: 12px;
+}
+
+.calendar-header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--tb-border);
+    padding-bottom: 8px;
+}
+
+.calendar-current-time {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.calendar-current-date {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.calendar-month-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.calendar-month-nav button {
+    background: transparent;
+    border: none;
+    color: var(--tb-color);
+    cursor: pointer;
+    font-size: 10px;
+    padding: 2px 4px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.cal-day-header {
+    font-size: 9px;
+    font-weight: bold;
+    opacity: 0.5;
+    padding: 4px 0;
+}
+
+.cal-day-empty {
+    /* Padding for days not in the current month */
+}
+
+.cal-day {
+    font-size: 10px;
+    padding: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cal-day:hover {
+    background: var(--tb-hover);
+}
+
+.cal-day.current-day {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}

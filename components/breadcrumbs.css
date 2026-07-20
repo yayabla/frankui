@@ -1,0 +1,146 @@
+/* Breadcrumbs Component Stylesheet */
+
+.breadcrumbs {
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-main);
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs .page-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.breadcrumbs .page-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+    cursor: pointer;
+}
+
+.breadcrumbs .page-item a:hover {
+    color: var(--primary-color-hover, #004578);
+    text-decoration: underline;
+}
+
+.breadcrumbs .page-item.active {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.breadcrumbs .page-item.active a {
+    color: inherit;
+    font-weight: inherit;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+/* Default separator */
+.breadcrumbs:not(.arrow) .page-item + .page-item::before {
+    content: "/";
+    padding: 0 10px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: normal;
+}
+
+[data-theme='dark'] .breadcrumbs:not(.arrow) .page-item + .page-item::before {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Arrow / Chevron breadcrumbs style */
+.breadcrumbs.arrow {
+    background-color: transparent;
+    gap: 2px;
+}
+
+.breadcrumbs.arrow .page-item {
+    background-color: rgba(0, 0, 0, 0.03);
+    margin-right: -10px;
+    padding: 8px 18px 8px 28px;
+    clip-path: polygon(0% 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 0% 100%, 12px 50%);
+    transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .breadcrumbs.arrow .page-item {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.breadcrumbs.arrow .page-item:first-child {
+    padding-left: 18px;
+    clip-path: polygon(0% 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 0% 100%);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.breadcrumbs.arrow .page-item:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.breadcrumbs.arrow .page-item a {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.breadcrumbs.arrow .page-item a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.breadcrumbs.arrow .page-item:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .breadcrumbs.arrow .page-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Active step styling matching mockup */
+.breadcrumbs.arrow .page-item.active {
+    background-color: #8e8e93; /* Slate grey active background */
+    color: #ffffff;
+}
+
+[data-theme='dark'] .breadcrumbs.arrow .page-item.active {
+    background-color: #555559;
+}
+
+.breadcrumbs.arrow .page-item.active a {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Numbered Circle Badge */
+.breadcrumbs.arrow .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #212529;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+.breadcrumbs.arrow .page-item.active .step-num {
+    background-color: #ffffff;
+    color: #8e8e93; /* Matches parent active background */
+}
+
+[data-theme='dark'] .breadcrumbs.arrow .page-item.active .step-num {
+    color: #555559;
+}

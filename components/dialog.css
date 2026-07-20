@@ -1,0 +1,105 @@
+/* Dialog Component Stylesheet */
+
+dialog, .dialog {
+    position: fixed !important;
+    margin: auto !important;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0 !important;
+    min-width: 320px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+.dialog-header {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog-header button {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.7;
+}
+
+.dialog-header button:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    opacity: 1;
+}
+
+[data-theme='dark'] .dialog-header button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+dialog.success .dialog-header button:hover, .dialog.success .dialog-header button:hover,
+dialog.warning .dialog-header button:hover, .dialog.warning .dialog-header button:hover,
+dialog.alert .dialog-header button:hover, .dialog.alert .dialog-header button:hover,
+dialog.info .dialog-header button:hover, .dialog.info .dialog-header button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dialog-content {
+    padding: 20px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dialog-footer {
+    padding: 10px 15px;
+    border-top: 1px solid var(--secondary-color);
+    text-align: right;
+}
+
+.dialog-footer button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.dialog-footer button:hover {
+    filter: brightness(1.1);
+}
+
+/* Color variations - Simplified */
+dialog.secondary, .dialog.secondary { border-color: var(--secondary-color); }
+dialog.secondary .dialog-header, .dialog.secondary .dialog-header { background-color: var(--secondary-color); color: var(--text-color); }
+
+dialog.success, .dialog.success { border-color: var(--success-color); }
+dialog.success .dialog-header, .dialog.success .dialog-header { background-color: var(--success-color); color: white; }
+
+dialog.warning, .dialog.warning { border-color: var(--warning-color); }
+dialog.warning .dialog-header, .dialog.warning .dialog-header { background-color: var(--warning-color); color: white; }
+
+dialog.alert, .dialog.alert { border-color: var(--alert-color); }
+dialog.alert .dialog-header, .dialog.alert .dialog-header { background-color: var(--alert-color); color: white; }
+
+dialog.info, .dialog.info { border-color: var(--info-color); }
+dialog.info .dialog-header, .dialog.info .dialog-header { background-color: var(--info-color); color: white; }

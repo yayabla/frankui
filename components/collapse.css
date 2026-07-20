@@ -1,0 +1,74 @@
+/* Collapse Component Stylesheet */
+
+details.collapse {
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+    box-sizing: border-box;
+}
+
+details.collapse[open] {
+    border-color: var(--primary-color);
+}
+
+details.collapse summary {
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-color);
+    cursor: pointer;
+    list-style: none; /* Hide default arrow in standard browsers */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.02);
+    transition: background-color 0.2s ease;
+}
+
+[data-theme='dark'] details.collapse summary {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+details.collapse summary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] details.collapse summary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Hide arrow in Webkit/Blink browsers */
+details.collapse summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom chevron indicator */
+details.collapse summary::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.25s ease;
+    margin-right: 4px;
+    opacity: 0.7;
+}
+
+details.collapse[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+.collapse-content {
+    padding: 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-top: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+}

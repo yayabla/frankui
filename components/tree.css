@@ -1,0 +1,28 @@
+.tree {
+    list-style: none;
+    padding-left: 20px;
+}
+.tree li {
+    list-style: none;
+}
+.tree-node {
+    cursor: pointer;
+    padding: 5px;
+}
+.tree-node::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 10px;
+    transition: transform 0.2s;
+}
+.tree-node.expanded::before {
+    transform: rotate(90deg);
+}
+.tree-children {
+    display: none;
+    padding-left: 20px;
+}
+.tree-node.expanded + .tree-children {
+    display: block;
+}

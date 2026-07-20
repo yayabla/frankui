@@ -1,0 +1,47 @@
+/* Panel Component Stylesheet */
+
+.panel {
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.panel-header {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-content {
+    padding: 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* Color variations - Simplified subclass composition */
+.panel.primary { border-color: var(--primary-color); }
+.panel.primary > .panel-header { background-color: var(--primary-color); color: #ffffff; border-bottom-color: var(--primary-color); }
+
+.panel.success { border-color: var(--success-color); }
+.panel.success > .panel-header { background-color: var(--success-color); color: #ffffff; border-bottom-color: var(--success-color); }
+
+.panel.warning { border-color: var(--warning-color); }
+.panel.warning > .panel-header { background-color: var(--warning-color); color: #ffffff; border-bottom-color: var(--warning-color); }
+
+.panel.alert { border-color: var(--alert-color); }
+.panel.alert > .panel-header { background-color: var(--alert-color); color: #ffffff; border-bottom-color: var(--alert-color); }
+
+.panel.info { border-color: var(--info-color); }
+.panel.info > .panel-header { background-color: var(--info-color); color: #ffffff; border-bottom-color: var(--info-color); }
+
+.panel.secondary { border-color: var(--secondary-color); }
+.panel.secondary > .panel-header { background-color: var(--secondary-color); color: var(--text-color); border-bottom-color: var(--secondary-color); }

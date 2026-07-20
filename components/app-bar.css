@@ -1,0 +1,364 @@
+/* App Bar Component Stylesheet */
+
+.app-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e24; /* Sleek dark theme default */
+    color: #ffffff;
+    padding: 10px 20px;
+    min-height: 56px;
+    font-family: var(--font-main);
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+    z-index: 1000;
+}
+
+[data-theme='light'] .app-bar {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-bar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+[data-theme='light'] .app-bar-brand {
+    color: #212529;
+}
+
+.app-bar-brand img,
+.app-bar-brand svg {
+    height: 28px;
+    width: auto;
+}
+
+.app-bar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-bar-item {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+[data-theme='light'] .app-bar-item {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.app-bar-item:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] .app-bar-item:hover {
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* App Bar Search */
+.app-bar-search {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 4px 10px;
+    gap: 6px;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    box-sizing: border-box;
+    height: 32px;
+}
+
+[data-theme='light'] .app-bar-search {
+    background-color: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-bar-search:focus-within {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='light'] .app-bar-search:focus-within {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(0, 90, 158, 0.25);
+}
+
+.app-bar-search input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 12.5px;
+    width: 160px;
+    transition: width 0.2s ease;
+    padding: 0;
+}
+
+[data-theme='light'] .app-bar-search input {
+    color: #212529;
+}
+
+.app-bar-search input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme='light'] .app-bar-search input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Action button inside app-bar */
+.app-bar .btn-app-bar {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    box-sizing: border-box;
+}
+
+[data-theme='light'] .app-bar .btn-app-bar {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: #212529;
+}
+
+.app-bar .btn-app-bar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='light'] .app-bar .btn-app-bar:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.app-bar .btn-app-bar.icon-only {
+    padding: 5px 8px;
+    width: 32px;
+    justify-content: center;
+}
+
+/* Hamburger toggle for mobile */
+.app-bar-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+}
+
+[data-theme='light'] .app-bar-hamburger {
+    color: #212529;
+}
+
+/* Dropdown override inside App Bar */
+.app-bar .dropdown .dropdown-menu {
+    top: calc(100% + 4px);
+    background-color: #1e1e24;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='light'] .app-bar .dropdown .dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.app-bar .dropdown .dropdown-menu li a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme='light'] .app-bar .dropdown .dropdown-menu li a {
+    color: #212529;
+}
+
+.app-bar .dropdown .dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+[data-theme='light'] .app-bar .dropdown .dropdown-menu li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 868px) {
+    .app-bar-hamburger {
+        display: block;
+    }
+    
+    .app-bar-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1e1e24;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+        align-items: stretch;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    
+    [data-theme='light'] .app-bar-menu {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .app-bar.open .app-bar-menu {
+        display: flex;
+    }
+    
+    .app-bar-menu > li,
+    .app-bar-menu .dropdown {
+        width: 100%;
+    }
+    
+    .app-bar-item {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 14px;
+    }
+    
+    .app-bar-search {
+        width: 100%;
+    }
+    
+    .app-bar-search input {
+        width: 100%;
+    }
+    
+    .app-bar .btn-app-bar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* App Bar Theme Switch Toggle */
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+
+[data-theme='light'] .theme-slider {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+/* Checked state: slide knob to the right */
+.theme-toggle input:checked + .theme-slider:before {
+    transform: translateX(24px);
+}
+
+.theme-toggle input:checked + .theme-slider {
+    background-color: #3a3a3c;
+}
+
+/* The symbol icon placement inside the slider */
+.theme-slider .theme-symbol {
+    font-size: 11px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: opacity 0.2s ease;
+    user-select: none;
+}
+
+/* Position symbol on the left when checked (Dark Mode) */
+.theme-slider .theme-symbol.dark-mode {
+    left: 6px;
+    right: auto;
+}
+
+/* Position symbol on the right when unchecked (Light Mode) */
+.theme-slider .theme-symbol.light-mode {
+    right: 6px;
+    left: auto;
+}
+

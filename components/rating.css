@@ -1,0 +1,13 @@
+.rating {
+    display: inline-flex;
+    gap: 5px;
+    cursor: pointer;
+}
+.rating .star {
+    font-size: 24px;
+    color: var(--secondary-color);
+    transition: color 0.2s;
+}
+.rating .star.active {
+    color: var(--warning-color);
+}

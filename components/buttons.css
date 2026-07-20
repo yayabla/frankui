@@ -1,0 +1,229 @@
+/* Buttons Component Stylesheet */
+
+.btn {
+    height: 36px;
+    padding: 6px 18px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13.5px;
+    font-family: var(--font-main);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+.btn:focus-visible {
+    outline: 2px solid var(--primary-color, #0078d7);
+    outline-offset: 2px;
+}
+
+/* Button Sizing Variants */
+.btn.mini {
+    height: 20px;
+    font-size: 10px;
+    padding: 0 8px;
+}
+.btn.small {
+    height: 26px;
+    font-size: 11.5px;
+    padding: 0 12px;
+}
+.btn.medium {
+    height: 30px;
+    font-size: 12.5px;
+    padding: 0 14px;
+}
+.btn.large {
+    height: 54px;
+    font-size: 16px;
+    padding: 0 28px;
+    font-weight: 700;
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Default Colors Modifiers */
+.btn.primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+.btn.secondary { background-color: var(--secondary-color); color: var(--text-color); border-color: var(--secondary-color); }
+.btn.success { background-color: var(--success-color); border-color: var(--success-color); }
+.btn.warning { background-color: var(--warning-color); border-color: var(--warning-color); }
+.btn.alert { background-color: var(--alert-color); border-color: var(--alert-color); }
+.btn.info { background-color: var(--info-color); border-color: var(--info-color); }
+
+[data-theme='light'] .btn.secondary {
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* 1. Flat Button Variant */
+.btn.flat {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--text-color);
+    box-shadow: none;
+}
+
+.btn.flat:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+    opacity: 1;
+}
+
+[data-theme='dark'] .btn.flat:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Flat Colored Variants */
+.btn.flat.primary { color: var(--primary-color); }
+.btn.flat.success { color: var(--success-color); }
+.btn.flat.warning { color: var(--warning-color); }
+.btn.flat.alert { color: var(--alert-color); }
+
+.btn.flat.primary:hover { background-color: rgba(0, 90, 158, 0.1); }
+.btn.flat.success:hover { background-color: rgba(40, 167, 69, 0.1); }
+.btn.flat.warning:hover { background-color: rgba(253, 126, 20, 0.1); }
+.btn.flat.alert:hover { background-color: rgba(220, 53, 69, 0.1); }
+
+/* 2. Outline Button Variant */
+.btn.outline {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+}
+
+[data-theme='light'] .btn.outline {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn.outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    opacity: 1;
+}
+
+[data-theme='light'] .btn.outline:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Outline Colored Variants */
+.btn.outline.primary { border-color: var(--primary-color); color: var(--primary-color); background-color: transparent; }
+.btn.outline.primary:hover { background-color: var(--primary-color); color: #ffffff; }
+
+.btn.outline.success { border-color: var(--success-color); color: var(--success-color); background-color: transparent; }
+.btn.outline.success:hover { background-color: var(--success-color); color: #ffffff; }
+
+.btn.outline.warning { border-color: var(--warning-color); color: var(--warning-color); background-color: transparent; }
+.btn.outline.warning:hover { background-color: var(--warning-color); color: #ffffff; }
+
+.btn.outline.alert { border-color: var(--alert-color); color: var(--alert-color); background-color: transparent; }
+.btn.outline.alert:hover { background-color: var(--alert-color); color: #ffffff; }
+
+/* 3. Link Button Variant */
+.btn.link {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 6px 12px;
+    font-weight: 500;
+    box-shadow: none;
+}
+
+.btn.link:hover {
+    background-color: transparent;
+    color: var(--primary-color-hover, #004578);
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.btn.link:active {
+    transform: none;
+}
+
+/* Button Groups */
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+    position: relative;
+    flex: 1 1 auto;
+}
+
+.btn-group > .btn:hover,
+.btn-group-vertical > .btn:hover,
+.btn-group > .btn:focus-visible,
+.btn-group-vertical > .btn:focus-visible,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn.active {
+    z-index: 1;
+}
+
+/* Horizontal button group collapsing */
+.btn-group > .btn:not(:first-child) {
+    margin-left: -1px;
+}
+
+.btn-group > .btn:not(:last-child) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.btn-group > .btn:not(:first-child) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Vertical Button Groups */
+.btn-group-vertical {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.btn-group-vertical > .btn:not(:first-child) {
+    margin-top: -1px;
+}
+
+.btn-group-vertical > .btn:not(:last-child) {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.btn-group-vertical > .btn:not(:first-child) {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* Button Group Sizing */
+.btn-group-lg > .btn {
+    height: 54px;
+    font-size: 16px;
+    padding: 0 28px;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.btn-group-sm > .btn {
+    height: 26px;
+    font-size: 11.5px;
+    padding: 0 12px;
+    border-radius: 3px;
+}
+

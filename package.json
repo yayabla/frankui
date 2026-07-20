@@ -1,0 +1,11 @@
+{
+  "name": "frankui-source",
+  "version": "1.0.0",
+  "description": "Source repository for FrankUI framework",
+  "scripts": {
+    "build": "./minify.sh"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}

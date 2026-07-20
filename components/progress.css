@@ -1,0 +1,170 @@
+.progress {
+    width: 100%;
+    height: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.progress-buffer {
+    height: 100%;
+    background-color: var(--info-color);
+    transition: width 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* Progress Ring */
+.progress.ring {
+    background-color: transparent;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    margin: 15px auto;
+}
+
+.progress-ring-wrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.progress-ring-wrap .circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    transform: rotate(225deg);
+    animation: orbit 4.4s infinite;
+}
+
+.progress-ring-wrap .circle::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+/* Stagger animation delays for the circles */
+.progress-ring-wrap .circle:nth-child(2) { animation-delay: 240ms; }
+.progress-ring-wrap .circle:nth-child(3) { animation-delay: 480ms; }
+.progress-ring-wrap .circle:nth-child(4) { animation-delay: 720ms; }
+.progress-ring-wrap .circle:nth-child(5) { animation-delay: 960ms; }
+
+@keyframes orbit {
+    0% {
+        transform: rotate(225deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    7% {
+        transform: rotate(345deg);
+        animation-timing-function: linear;
+    }
+    30% {
+        transform: rotate(455deg);
+        animation-timing-function: ease-in-out;
+    }
+    39% {
+        transform: rotate(570deg);
+        animation-timing-function: ease-out;
+    }
+    70% {
+        transform: rotate(815deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: rotate(945deg);
+        animation-timing-function: ease-out;
+    }
+    76% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+}
+
+/* Progress Indeterminate (Horizontal dots) */
+.progress.indeterminate {
+    background-color: transparent;
+    height: 6px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.progress-indeterminate-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-indeterminate-wrap .dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: 0;
+    opacity: 0;
+    animation: slideIndeterminate 3s infinite;
+}
+
+.progress-indeterminate-wrap .dot:nth-child(2) { animation-delay: 150ms; }
+.progress-indeterminate-wrap .dot:nth-child(3) { animation-delay: 300ms; }
+.progress-indeterminate-wrap .dot:nth-child(4) { animation-delay: 450ms; }
+.progress-indeterminate-wrap .dot:nth-child(5) { animation-delay: 600ms; }
+
+@keyframes slideIndeterminate {
+    0% {
+        left: 0%;
+        opacity: 0;
+        animation-timing-function: ease-out;
+    }
+    10% {
+        left: 10%;
+        opacity: 1;
+        animation-timing-function: linear;
+    }
+    40% {
+        left: 60%;
+        animation-timing-function: ease-in-out;
+    }
+    60% {
+        left: 80%;
+        animation-timing-function: ease-out;
+    }
+    75% {
+        left: 100%;
+        opacity: 1;
+    }
+    76% {
+        left: 100%;
+        opacity: 0;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,21 @@
+.context-menu {
+    position: absolute;
+    background: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 1000;
+    min-width: 150px;
+}
+.context-menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.context-menu-item:hover {
+    background: var(--secondary-color);
+}
+.context-menu-item .icon { margin-right: 10px; }
+.context-menu-item .hotkey { color: gray; font-size: 12px; margin-left: 15px; }

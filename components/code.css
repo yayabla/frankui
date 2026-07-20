@@ -1,0 +1,73 @@
+/* Monokai Theme Styles for pre.code */
+pre.code {
+    background-color: #272822 !important;
+    color: #f8f8f2 !important;
+    padding: 15px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid #1e1f1c;
+    text-align: left;
+}
+
+/* Base Tokens */
+pre.code .token.comment {
+    color: #75715e;
+    font-style: italic;
+}
+
+pre.code .token.keyword {
+    color: #f92672; /* Pink */
+    font-weight: bold;
+}
+
+pre.code .token.string {
+    color: #e6db74; /* Yellow */
+}
+
+pre.code .token.number {
+    color: #ae81ff; /* Purple */
+}
+
+pre.code .token.function {
+    color: #a6e22e; /* Green */
+}
+
+/* HTML specific tokens */
+pre.code .token.tag {
+    color: #f92672; /* Pink */
+}
+
+pre.code .token.attr-name {
+    color: #a6e22e; /* Green */
+}
+
+pre.code .token.attr-value {
+    color: #e6db74; /* Yellow */
+}
+
+/* CSS specific tokens */
+pre.code .token.selector {
+    color: #a6e22e; /* Green */
+    font-weight: bold;
+}
+
+pre.code .token.property {
+    color: #66d9ef; /* Blue */
+}
+
+pre.code .token.value {
+    color: #ae81ff; /* Purple */
+}
+
+/* PHP specific tokens */
+pre.code .token.variable {
+    color: #fd971f; /* Orange */
+}
+
+pre.code .token.php-tag {
+    color: #f92672; /* Pink */
+    font-weight: bold;
+}

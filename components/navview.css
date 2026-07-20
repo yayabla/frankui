@@ -1,0 +1,167 @@
+.navview {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+}
+
+.navview-pane {
+    width: 250px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Compact Sidebar State */
+.navview.compact .navview-pane {
+    width: 50px;
+}
+
+.navview-content {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+    box-sizing: border-box;
+}
+
+/* Pane Header & Pull Button */
+.navview-pane-header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.navview .pull-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.15s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.navview .pull-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navview-pane-title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+
+.navview.compact .navview-pane-title {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Navigation Menu */
+.navview-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.navview-menu li {
+    position: relative;
+}
+
+.navview-menu li a {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    text-decoration: none;
+    color: var(--text-color);
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navview-menu li a:hover,
+.navview-menu li.active a {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navview-menu li.active a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.navview-menu li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--primary-color);
+}
+
+.navview-menu li a .icon {
+    width: 50px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.navview-menu li a .caption {
+    font-size: 14px;
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+
+.navview.compact .navview-menu li a .caption {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Menu Item Header */
+.navview-menu .item-header {
+    font-size: 10.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 15px 5px 15px;
+    opacity: 0.5;
+    white-space: nowrap;
+}
+
+.navview.compact .navview-menu .item-header {
+    display: none;
+}
+
+/* Theme overrides */
+[data-theme='dark'] .navview-pane {
+    border-right-color: rgba(255, 255, 255, 0.05);
+}
+[data-theme='dark'] .navview-menu li a:hover,
+[data-theme='dark'] .navview-menu li.active a {
+    background-color: rgba(255, 255, 255, 0.05);
+}

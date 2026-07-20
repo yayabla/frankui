@@ -1,0 +1,86 @@
+/* Position Utilities */
+
+.pos-relative { position: relative !important; }
+.pos-absolute { position: absolute !important; }
+.pos-static { position: static !important; }
+.pos-fixed { position: fixed !important; }
+.pos-sticky { 
+    position: sticky !important; 
+    top: 0 !important; 
+    align-self: flex-start !important; 
+}
+
+/* Fixed Position Utilities */
+.fixed-top {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1030 !important;
+}
+
+.fixed-bottom {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1030 !important;
+}
+
+/* Responsive Variants */
+
+/* xs */
+@media (min-width: 480px) {
+    .pos-relative-xs { position: relative !important; }
+    .pos-absolute-xs { position: absolute !important; }
+    .pos-static-xs { position: static !important; }
+    .pos-fixed-xs { position: fixed !important; }
+}
+
+/* sm */
+@media (min-width: 576px) {
+    .pos-relative-sm { position: relative !important; }
+    .pos-absolute-sm { position: absolute !important; }
+    .pos-static-sm { position: static !important; }
+    .pos-fixed-sm { position: fixed !important; }
+}
+
+/* md */
+@media (min-width: 768px) {
+    .pos-relative-md { position: relative !important; }
+    .pos-absolute-md { position: absolute !important; }
+    .pos-static-md { position: static !important; }
+    .pos-fixed-md { position: fixed !important; }
+}
+
+/* lg */
+@media (min-width: 992px) {
+    .pos-relative-lg { position: relative !important; }
+    .pos-absolute-lg { position: absolute !important; }
+    .pos-static-lg { position: static !important; }
+    .pos-fixed-lg { position: fixed !important; }
+}
+
+/* xl */
+@media (min-width: 1200px) {
+    .pos-relative-xl { position: relative !important; }
+    .pos-absolute-xl { position: absolute !important; }
+    .pos-static-xl { position: static !important; }
+    .pos-fixed-xl { position: fixed !important; }
+}
+
+/* xxl */
+@media (min-width: 1400px) {
+    .pos-relative-xxl { position: relative !important; }
+    .pos-absolute-xxl { position: absolute !important; }
+    .pos-static-xxl { position: static !important; }
+    .pos-fixed-xxl { position: fixed !important; }
+}
+
+/* xxxl */
+@media (min-width: 1600px) {
+    .pos-relative-xxxl { position: relative !important; }
+    .pos-absolute-xxxl { position: absolute !important; }
+    .pos-static-xxxl { position: static !important; }
+    .pos-fixed-xxxl { position: fixed !important; }
+}

@@ -1,0 +1,52 @@
+.list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    box-sizing: border-box;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--secondary-color);
+    font-size: 13.5px;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.list-group-item:last-child {
+    border-bottom-width: 0;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.list-group-item.disabled {
+    color: #858585;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Theme overrides */
+[data-theme='dark'] .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+[data-theme='dark'] .list-group-item.disabled {
+    background-color: rgba(255, 255, 255, 0.02);
+}

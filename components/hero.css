@@ -1,0 +1,18 @@
+.hero {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0 0 10px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin: 0 0 20px;
+    opacity: 0.9;
+}

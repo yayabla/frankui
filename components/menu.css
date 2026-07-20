@@ -1,0 +1,106 @@
+.menubar {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    user-select: none;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.menubar .menu-item {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.menubar a {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.menubar .menu-item > a:hover,
+.menubar .menu-item.open > a {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dropdown Menu block */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    padding: 4px 0;
+    margin: 0;
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.menu-item.open > .menu-dropdown {
+    display: block;
+}
+
+/* Nested Dropdowns positioning (submenu) */
+.menu-dropdown .menu-item > .menu-dropdown {
+    top: 0;
+    left: 100%;
+    margin-left: 2px;
+}
+
+.menu-dropdown a {
+    padding: 6px 16px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-dropdown a:hover,
+.menu-dropdown .menu-item.open > a {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.menu-dropdown a .menu-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-dropdown a .menu-shortcut {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-left: 20px;
+}
+
+.menu-dropdown a .arrow {
+    font-size: 9px;
+    opacity: 0.6;
+    margin-left: 10px;
+}
+
+.menu-dropdown .divider {
+    height: 1px;
+    background-color: var(--secondary-color);
+    margin: 4px 0;
+}
+
+/* Theme overrides */
+[data-theme='dark'] .menu-dropdown {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,206 @@
+/* Color Utility Classes */
+
+/* --- Primary Colors --- */
+/* Lime */
+.bg-lime { background-color: #a4c400 !important; }
+.fg-lime { color: #a4c400 !important; }
+.bd-lime { border-color: #a4c400 !important; }
+
+/* Green */
+.bg-green { background-color: #60a917 !important; }
+.fg-green { color: #60a917 !important; }
+.bd-green { border-color: #60a917 !important; }
+
+/* Emerald */
+.bg-emerald { background-color: #008a00 !important; }
+.fg-emerald { color: #008a00 !important; }
+.bd-emerald { border-color: #008a00 !important; }
+
+/* Teal */
+.bg-teal { background-color: #00aba9 !important; }
+.fg-teal { color: #00aba9 !important; }
+.bd-teal { border-color: #00aba9 !important; }
+
+/* Cyan */
+.bg-cyan { background-color: #1ba1e2 !important; }
+.fg-cyan { color: #1ba1e2 !important; }
+.bd-cyan { border-color: #1ba1e2 !important; }
+
+/* Cobalt */
+.bg-cobalt { background-color: #0050ef !important; }
+.fg-cobalt { color: #0050ef !important; }
+.bd-cobalt { border-color: #0050ef !important; }
+
+/* Indigo */
+.bg-indigo { background-color: #6a00ff !important; }
+.fg-indigo { color: #6a00ff !important; }
+.bd-indigo { border-color: #6a00ff !important; }
+
+/* Violet */
+.bg-violet { background-color: #aa00ff !important; }
+.fg-violet { color: #aa00ff !important; }
+.bd-violet { border-color: #aa00ff !important; }
+
+/* Pink */
+.bg-pink { background-color: #f472d0 !important; }
+.fg-pink { color: #f472d0 !important; }
+.bd-pink { border-color: #f472d0 !important; }
+
+/* Magenta */
+.bg-magenta { background-color: #d80073 !important; }
+.fg-magenta { color: #d80073 !important; }
+.bd-magenta { border-color: #d80073 !important; }
+
+/* Crimson */
+.bg-crimson { background-color: #a20025 !important; }
+.fg-crimson { color: #a20025 !important; }
+.bd-crimson { border-color: #a20025 !important; }
+
+/* Red */
+.bg-red { background-color: #e51400 !important; }
+.fg-red { color: #e51400 !important; }
+.bd-red { border-color: #e51400 !important; }
+
+/* Orange */
+.bg-orange { background-color: #fa6800 !important; }
+.fg-orange { color: #fa6800 !important; }
+.bd-orange { border-color: #fa6800 !important; }
+
+/* Amber */
+.bg-amber { background-color: #f0a30a !important; }
+.fg-amber { color: #f0a30a !important; }
+.bd-amber { border-color: #f0a30a !important; }
+
+/* Yellow */
+.bg-yellow { background-color: #e3c800 !important; }
+.fg-yellow { color: #e3c800 !important; }
+.bd-yellow { border-color: #e3c800 !important; }
+
+/* Brown */
+.bg-brown { background-color: #825a2c !important; }
+.fg-brown { color: #825a2c !important; }
+.bd-brown { border-color: #825a2c !important; }
+
+/* Olive */
+.bg-olive { background-color: #6d8764 !important; }
+.fg-olive { color: #6d8764 !important; }
+.bd-olive { border-color: #6d8764 !important; }
+
+/* Blue */
+.bg-blue { background-color: #2d89ef !important; }
+.fg-blue { color: #2d89ef !important; }
+.bd-blue { border-color: #2d89ef !important; }
+
+
+/* --- Extended Colors --- */
+/* Steel */
+.bg-steel { background-color: #647687 !important; }
+.fg-steel { color: #647687 !important; }
+.bd-steel { border-color: #647687 !important; }
+
+/* Mauve */
+.bg-mauve { background-color: #76608a !important; }
+.fg-mauve { color: #76608a !important; }
+.bd-mauve { border-color: #76608a !important; }
+
+/* Taupe */
+.bg-taupe { background-color: #87794e !important; }
+.fg-taupe { color: #87794e !important; }
+.bd-taupe { border-color: #87794e !important; }
+
+/* Champagne */
+.bg-champagne { background-color: #fad6a5 !important; }
+.fg-champagne { color: #fad6a5 !important; }
+.bd-champagne { border-color: #fad6a5 !important; }
+
+/* Khaki */
+.bg-khaki { background-color: #f0e68c !important; }
+.fg-khaki { color: #f0e68c !important; }
+.bd-khaki { border-color: #f0e68c !important; }
+
+/* Charcoal */
+.bg-charcoal { background-color: #555555 !important; }
+.fg-charcoal { color: #555555 !important; }
+.bd-charcoal { border-color: #555555 !important; }
+
+/* Bronze */
+.bg-bronze { background-color: #cd7f32 !important; }
+.fg-bronze { color: #cd7f32 !important; }
+.bd-bronze { border-color: #cd7f32 !important; }
+
+/* Windstorm */
+.bg-windstorm { background-color: #6997c3 !important; }
+.fg-windstorm { color: #6997c3 !important; }
+.bd-windstorm { border-color: #6997c3 !important; }
+
+/* Nude */
+.bg-nude { background-color: #e6b8a2 !important; }
+.fg-nude { color: #e6b8a2 !important; }
+.bd-nude { border-color: #e6b8a2 !important; }
+
+/* Terracotta */
+.bg-terracotta { background-color: #c25e3a !important; }
+.fg-terracotta { color: #c25e3a !important; }
+.bd-terracotta { border-color: #c25e3a !important; }
+
+/* Coral */
+.bg-coral { background-color: #ff7f50 !important; }
+.fg-coral { color: #ff7f50 !important; }
+.bd-coral { border-color: #ff7f50 !important; }
+
+/* Army */
+.bg-army { background-color: #4b5320 !important; }
+.fg-army { color: #4b5320 !important; }
+.bd-army { border-color: #4b5320 !important; }
+
+/* Seashell */
+.bg-seashell { background-color: #fff5ee !important; }
+.fg-seashell { color: #fff5ee !important; }
+.bd-seashell { border-color: #fff5ee !important; }
+
+/* Sand */
+.bg-sand { background-color: #c2b280 !important; }
+.fg-sand { color: #c2b280 !important; }
+.bd-sand { border-color: #c2b280 !important; }
+
+
+/* --- Neutrals & Specials --- */
+/* Dark */
+.bg-dark { background-color: #1d1d1d !important; }
+.fg-dark { color: #1d1d1d !important; }
+.bd-dark { border-color: #1d1d1d !important; }
+
+/* Light */
+.bg-light { background-color: #f8f9fa !important; }
+.fg-light { color: #f8f9fa !important; }
+.bd-light { border-color: #f8f9fa !important; }
+
+/* Gray */
+.bg-gray { background-color: #808080 !important; }
+.fg-gray { color: #808080 !important; }
+.bd-gray { border-color: #808080 !important; }
+
+/* Gray Blue */
+.bg-gray-blue { background-color: #5d6d7e !important; }
+.fg-gray-blue { color: #5d6d7e !important; }
+.bd-gray-blue { border-color: #5d6d7e !important; }
+
+/* Gray White */
+.bg-gray-white { background-color: #f5f6f8 !important; }
+.fg-gray-white { color: #f5f6f8 !important; }
+.bd-gray-white { border-color: #f5f6f8 !important; }
+
+/* Gray Mouse */
+.bg-gray-mouse { background-color: #a0a0a0 !important; }
+.fg-gray-mouse { color: #a0a0a0 !important; }
+.bd-gray-mouse { border-color: #a0a0a0 !important; }
+
+/* Almost */
+.bg-almost { background-color: #1a1a1a !important; }
+.fg-almost { color: #1a1a1a !important; }
+.bd-almost { border-color: #1a1a1a !important; }
+
+/* Clown */
+.bg-clown { background-color: #ff00ff !important; }
+.fg-clown { color: #ff00ff !important; }
+.bd-clown { border-color: #ff00ff !important; }

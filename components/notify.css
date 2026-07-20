@@ -1,0 +1,106 @@
+.notify-container {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none; /* Let clicks pass through container */
+}
+
+.notify-container .notify {
+    pointer-events: auto; /* Re-enable clicks for actual toasts */
+}
+
+/* Positioning classes */
+.notify-container.top-right {
+    top: 20px;
+    right: 20px;
+}
+.notify-container.top-left {
+    top: 20px;
+    left: 20px;
+}
+.notify-container.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+.notify-container.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+.notify-container.top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.notify-container.bottom-center {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.notify {
+    background: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    padding: 15px 35px 15px 15px; /* extra right padding for close button */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    min-width: 280px;
+    max-width: 450px;
+    position: relative;
+    color: var(--text-color);
+    animation: notifyFadeIn 0.35s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    transition: opacity 0.3s, transform 0.3s, margin-bottom 0.3s;
+}
+
+.notify.dismissing {
+    opacity: 0 !important;
+    transform: translateY(-15px) scale(0.95);
+    margin-bottom: -60px;
+}
+
+@keyframes notifyFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.notify-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.notify-content {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* Close button styling */
+.notify-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.notify-close:hover {
+    opacity: 1;
+}
+
+.notify.success { border-left: 5px solid var(--success-color); }
+.notify.warning { border-left: 5px solid var(--warning-color); }
+.notify.alert { border-left: 5px solid var(--alert-color); }
+.notify.info { border-left: 5px solid var(--info-color); }

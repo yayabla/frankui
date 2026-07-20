@@ -1,0 +1,129 @@
+@import url('components/accordion.css');
+@import url('components/alert.css');
+@import url('components/buttons.css');
+@import url('components/card.css');
+@import url('components/code.css');
+@import url('components/context-menu.css');
+@import url('components/desktop.css');
+@import url('components/dialog.css');
+@import url('components/file.css');
+@import url('components/forms.css');
+@import url('components/grid.css');
+@import url('components/hero.css');
+@import url('components/navbar.css');
+@import url('components/notify.css');
+@import url('components/panel.css');
+@import url('components/progress.css');
+@import url('components/rating.css');
+@import url('components/remark.css');
+@import url('components/sidenav.css');
+@import url('components/step-list.css');
+@import url('components/tabs.css');
+@import url('components/timeline.css');
+@import url('components/toolbar.css');
+@import url('components/tooltip.css');
+@import url('components/tree.css');
+@import url('components/working-tree.css');
+@import url('components/tile.css');
+@import url('components/window.css');
+@import url('components/taskbar.css');
+@import url('components/dropdown.css');
+@import url('components/select.css');
+@import url('components/ribbon.css');
+@import url('components/action-button.css');
+@import url('components/app-bar.css');
+@import url('components/breadcrumbs.css');
+@import url('components/bull.css');
+@import url('components/cloak.css');
+@import url('components/collapse.css');
+@import url('components/spacing.css');
+@import url('components/position.css');
+@import url('components/splitter.css');
+@import url('components/navview.css');
+@import url('components/menu.css');
+@import url('components/datepicker.css');
+@import url('components/listgroup.css');
+@import url('components/loaders.css');
+@import url('components/pagination.css');
+@import url('components/carousel.css');
+@import url('components/chat.css');
+@import url('components/ai-builder.css');
+@import url('components/typography.css');
+@import url('components/cursor.css');
+@import url('components/visibility.css');
+@import url('components/border.css');
+@import url('components/colors.css');
+@import url('components/flex.css');
+@import url('components/images.css');
+
+
+
+:root {
+    --primary-color: #0078d7;
+    --secondary-color: #f0f0f0;
+    --text-color: #333;
+    --bg-color: #fff;
+    --font-name: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", sans-serif;
+    --font-main: var(--font-name);
+    --font-size: 1rem;
+    --line-height: 1.5;
+    --font-style: normal;
+    --font-weight: 400;
+    --gutter: 10px;
+    --customizer-bg: #eee;
+    --success-color: #28a745;
+    --warning-color: #fd7e14;
+    --alert-color: #dc3545;
+    --info-color: #17a2b8;
+    --h1-size: 2rem;
+    --h2-size: 1.5rem;
+    --h3-size: 1.25rem;
+    --h4-size: 1rem;
+    --h5-size: 0.875rem;
+    --h6-size: 0.75rem;
+}
+
+[data-theme='dark'] {
+    --primary-color: #005a9e;
+    --secondary-color: #333;
+    --text-color: #eee;
+    --bg-color: #1a1a1a;
+    --customizer-bg: #333;
+}
+
+body {
+    font-family: var(--font-name);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-style: var(--font-style);
+    font-weight: var(--font-weight);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+h4 { font-size: var(--h4-size); }
+h5 { font-size: var(--h5-size); }
+h6 { font-size: var(--h6-size); }
+
+/* Float and Layout Helpers */
+.pull-right, .float-right {
+    float: right !important;
+    margin-left: auto !important;
+}
+
+.pull-left, .float-left {
+    float: left !important;
+    margin-right: auto !important;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+

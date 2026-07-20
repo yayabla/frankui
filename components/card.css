@@ -1,0 +1,17 @@
+.card {
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+    margin-bottom: 20px;
+}
+.card-header {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    font-weight: bold;
+}
+.card-content {
+    padding: 15px;
+}
+.card-footer {
+    padding: 10px 15px;
+    border-top: 1px solid var(--secondary-color);
+}

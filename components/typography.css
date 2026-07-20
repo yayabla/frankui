@@ -1,0 +1,30 @@
+/* Typography Utilities */
+
+/* Heading Classes */
+.h1 { font-size: var(--h1-size) !important; }
+.h2 { font-size: var(--h2-size) !important; }
+.h3 { font-size: var(--h3-size) !important; }
+.h4 { font-size: var(--h4-size) !important; }
+.h5 { font-size: var(--h5-size) !important; }
+.h6 { font-size: var(--h6-size) !important; }
+
+/* Display Classes */
+.display1 {
+    font-size: 36px !important;
+    font-weight: 400 !important;
+}
+
+.display2 {
+    font-size: 48px !important;
+    font-weight: 400 !important;
+}
+
+.display3 {
+    font-size: 56px !important;
+    font-weight: 400 !important;
+}
+
+.display4 {
+    font-size: 112px !important;
+    font-weight: 200 !important;
+}

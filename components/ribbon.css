@@ -1,0 +1,278 @@
+/* Ribbon Menu Component Stylesheet */
+
+.ribbon-container {
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    font-family: var(--font-main);
+    box-sizing: border-box;
+    overflow: visible;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.ribbon-tabs {
+    display: flex;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0 5px;
+    height: 34px;
+    align-items: flex-end;
+    position: relative;
+    box-sizing: border-box;
+}
+
+[data-theme='dark'] .ribbon-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ribbon-tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-color);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: -1px;
+    transition: all 0.15s ease;
+}
+
+.ribbon-tab-btn:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] .ribbon-tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.ribbon-tab-btn.active {
+    background-color: var(--bg-color);
+    border-color: rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid var(--bg-color);
+    z-index: 2;
+}
+
+[data-theme='dark'] .ribbon-tab-btn.active {
+    border-color: rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid var(--bg-color);
+}
+
+.ribbon-toggle-btn {
+    position: absolute;
+    right: 8px;
+    bottom: 6px;
+    background: transparent;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.6;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+
+.ribbon-toggle-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    opacity: 1;
+}
+
+[data-theme='dark'] .ribbon-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Ribbon Content and Sections */
+.ribbon-content {
+    min-height: 98px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 6px;
+    box-sizing: border-box;
+    transition: max-height 0.2s ease, padding 0.2s ease, min-height 0.2s ease;
+    max-height: 120px;
+    overflow: visible;
+}
+
+[data-theme='dark'] .ribbon-content {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ribbon-container.collapsed {
+    overflow: hidden;
+}
+
+.ribbon-container.collapsed .ribbon-content {
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    border-bottom: none;
+    overflow: hidden;
+}
+
+.ribbon-tab-pane {
+    display: none;
+    height: 100%;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.ribbon-tab-pane.active {
+    display: flex;
+}
+
+.ribbon-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0 8px;
+    margin: 2px 0;
+}
+
+[data-theme='dark'] .ribbon-section {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ribbon-section:last-child {
+    border-right: none;
+}
+
+.ribbon-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.ribbon-section-label {
+    text-align: center;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.5;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* Ribbon Buttons */
+.ribbon-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+}
+
+.ribbon-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .ribbon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.ribbon-btn:active,
+.ribbon-btn.active {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .ribbon-btn:active,
+[data-theme='dark'] .ribbon-btn.active {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Large Button style */
+.ribbon-btn.large {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    width: 66px;
+    height: 72px;
+    text-align: center;
+}
+
+.ribbon-btn.large .ribbon-icon {
+    font-size: 26px;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.ribbon-btn.large .ribbon-label {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+    display: block;
+}
+
+/* Small Button style */
+.ribbon-btn.small {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    text-align: left;
+    height: 22px;
+}
+
+.ribbon-btn.small .ribbon-icon {
+    font-size: 13px;
+}
+
+.ribbon-btn.small .ribbon-label {
+    font-size: 11px;
+}
+
+/* Icon Only Toggle style */
+.ribbon-btn.icon-only {
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    padding: 0;
+}
+
+/* Columns and layout helpers */
+.ribbon-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+}
+
+.ribbon-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Ribbon Dropdown Styling Integration */
+.ribbon-section .dropdown .dropdown-toggle {
+    font-size: 11px;
+    padding: 3px 8px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+[data-theme='dark'] .ribbon-section .dropdown .dropdown-toggle {
+    background-color: #202020;
+    border: 1px solid rgba(255,255,255,0.15);
+}

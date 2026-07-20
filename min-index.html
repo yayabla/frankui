@@ -1,0 +1,607 @@
+<html>
+  <head>
+    <title>Test minified</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="frankui.bundle.min.css">
+    <style id="custom-theme-styles"></style>
+  </head>
+  <body>
+<div class="hero">
+        <div class="container">
+            <h1>FrankUI</h1>
+            <p>A lightweight, Metro-inspired CSS/JS framework.</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div id="customizer" style="margin-bottom: 20px; padding: 20px; background: var(--customizer-bg); border-radius: 6px; border: 1px solid var(--secondary-color);">
+            <h3>Theme Customizer</h3>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 15px; margin-bottom: 15px;">
+                <div style="display: flex; flex-direction: column;">
+                    <label for="primary-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Primary:</label>
+                    <input type="color" id="primary-color" value="#0078d7" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="secondary-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Secondary:</label>
+                    <input type="color" id="secondary-color" value="#f0f0f0" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="text-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Text:</label>
+                    <input type="color" id="text-color" value="#333333" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="bg-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">BG:</label>
+                    <input type="color" id="bg-color" value="#ffffff" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label for="success-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Success:</label>
+                    <input type="color" id="success-color" value="#28a745" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="warning-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Warning:</label>
+                    <input type="color" id="warning-color" value="#fd7e14" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="alert-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Alert:</label>
+                    <input type="color" id="alert-color" value="#dc3545" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="info-color" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Info:</label>
+                    <input type="color" id="info-color" value="#17a2b8" style="width: 100%; height: 34px; padding: 2px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label for="gutter" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Gutter (px):</label>
+                    <input type="number" id="gutter" value="10" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="font-name" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Font Name:</label>
+                    <input type="text" id="font-name" value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="font-size" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Font Size:</label>
+                    <input type="text" id="font-size" value="1rem" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="line-height" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Line Height:</label>
+                    <input type="text" id="line-height" value="1.5" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label for="font-style" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Font Style:</label>
+                    <input type="text" id="font-style" value="normal" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <label for="font-weight" style="font-weight: bold; margin-bottom: 4px; font-size: 13px;">Font Weight:</label>
+                    <input type="text" id="font-weight" value="400" style="width: 100%; height: 34px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px;">
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn primary" onclick="updateTheme()">Apply</button>
+                <button class="btn secondary" onclick="FrankUI.toggleDarkMode()">Toggle Dark Mode</button>
+                <button class="btn info" onclick="downloadTheme()">Download</button>
+            </div>
+        </div>
+
+        <h2>Components</h2>
+
+        <h3>Alert</h3>
+        <div style="margin-bottom: 20px;">
+            <div class="alert success dismissible">
+                <strong>Success!</strong> You successfully read this important alert message.
+            </div>
+            <div class="alert danger dismissible">
+                <strong>Danger!</strong> Something went wrong, please try again.
+            </div>
+        </div>
+
+        <h3>Accordion</h3>
+        <div class="accordion" style="margin-bottom: 20px;">
+            <div class="accordion-header">What is FrankUI?</div>
+            <div class="accordion-content">FrankUI is a lightweight framework inspired by Metro design.</div>
+            <div class="accordion-header">How do I use it?</div>
+            <div class="accordion-content">Include the framework files and initialize the components.</div>
+        </div>
+
+        <h3>Buttons</h3>
+        <div style="margin-bottom: 20px;">
+            <button class="btn primary">Primary</button>
+            <button class="btn secondary">Secondary</button>
+            <button class="btn success">Success</button>
+            <button class="btn warning">Warning</button>
+            <button class="btn alert">Alert</button>
+            <button class="btn info">Info</button>
+        </div>
+
+        <h3>Cards</h3>
+        <div class="card">
+            <div class="card-header">Card Title</div>
+            <div class="card-content">Card content goes here...</div>
+            <div class="card-footer"><button class="btn primary">Action</button></div>
+        </div>
+
+        <h3>Dialogs</h3>
+        <div style="margin-bottom: 20px;">
+            <button class="btn primary" onclick="Dialog.create({title: 'Dynamic Success Dialog', content: 'Created dynamically!', closeButton: true, defaultActions: true, color: 'success'})">Dynamic Success JS Dialog</button>
+            <button class="btn success" onclick="document.getElementById('dialog-success').showModal()">Open Success Dialog</button>
+            <button class="btn warning" onclick="document.getElementById('dialog-warning').showModal()">Open Warning Dialog</button>
+            <button class="btn alert" onclick="document.getElementById('dialog-alert').showModal()">Open Alert Dialog</button>
+            <button class="btn info" onclick="document.getElementById('dialog-info').showModal()">Open Info Dialog</button>
+        </div>
+
+        <dialog id="dialog-success" class="dialog success">
+            <div class="dialog-header">Success <button onclick="this.closest('dialog').close()">X</button></div>
+            <div class="dialog-content">Action completed successfully.</div>
+            <div class="dialog-footer"><button onclick="this.closest('dialog').close()">OK</button></div>
+        </dialog>
+
+        <dialog id="dialog-warning" class="dialog warning">
+            <div class="dialog-header">Warning <button onclick="this.closest('dialog').close()">X</button></div>
+            <div class="dialog-content">This is a warning message.</div>
+            <div class="dialog-footer"><button onclick="this.closest('dialog').close()">OK</button></div>
+        </dialog>
+
+        <dialog id="dialog-alert" class="dialog alert">
+            <div class="dialog-header">Alert <button onclick="this.closest('dialog').close()">X</button></div>
+            <div class="dialog-content">Something went wrong!</div>
+            <div class="dialog-footer"><button onclick="this.closest('dialog').close()">OK</button></div>
+        </dialog>
+
+        <dialog id="dialog-info" class="dialog info">
+            <div class="dialog-header">Info <button onclick="this.closest('dialog').close()">X</button></div>
+            <div class="dialog-content">Here is some information.</div>
+            <div class="dialog-footer"><button onclick="this.closest('dialog').close()">OK</button></div>
+        </dialog>
+
+        <h3>File Input</h3>
+        <div class="file-input-wrapper">
+            <label class="file-label">
+                Select Files
+                <input type="file" data-role="file" data-max-size="1048576" multiple>
+            </label>
+            <div class="file-preview"></div>
+        </div>
+
+        <h3>Select</h3>
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-md-6 form-group">
+                <label>Standard Select</label>
+                <select id="test-standard-select" class="form-control">
+                    <option value="">Choose a Country...</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                </select>
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Fancy Select (Interactive Combobox)</label>
+                <select id="test-fancy-select" class="form-control">
+                    <option value="">Choose a Country...</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-md-6 form-group">
+                <label>Standard Multiple Select</label>
+                <select id="test-standard-multi-select" class="form-control" multiple style="height: 120px;">
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                </select>
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Multiple Fancy Select (Interactive Combobox)</label>
+                <select id="test-fancy-multi-select" class="form-control" multiple>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AF" selected>Afghanistan</option>
+                    <option value="AX">Aland Islands</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ" selected>Algeria</option>
+                    <option value="AS">American Samoa</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AI">Anguilla</option>
+                </select>
+            </div>
+        </div>
+
+        <h3>Forms</h3>
+        <form class="card">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Text Input</label>
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Textarea</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>IBAN</label>
+                    <input type="text" class="form-control" data-iban="true" placeholder="NL INGB 0000 0000 00">
+                </div>
+                <div class="form-group">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <label style="display:inline">Toggle Switch</label>
+                </div>
+                <div class="form-group">
+                    <label>Radio Group</label>
+                    <div>
+                        <input type="radio" name="radio" id="r1" checked> <label for="r1" style="display:inline">Option 1</label>
+                        <input type="radio" name="radio" id="r2"> <label for="r2" style="display:inline">Option 2</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Checkbox Group</label>
+                    <div>
+                        <input type="checkbox" id="c1"> <label for="c1" style="display:inline">Check 1</label>
+                        <input type="checkbox" id="c2"> <label for="c2" style="display:inline">Check 2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn primary">Submit</button>
+            </div>
+        </form>
+
+        <h3>Notifications</h3>
+        <div style="margin-bottom: 20px;">
+            <button class="btn info" onclick="Notify.create('This is a notification', 'Info', {clsNotify: 'info'})">Info Notify</button>
+            <button class="btn alert" onclick="Notify.create('Critical error occurred', 'Alert', {clsNotify: 'alert', keepOpen: true})">Persistent Alert</button>
+        </div>
+
+        <h3>Progress Bars</h3>
+        <div data-role="progress" data-type="bar" data-value="60"></div>
+        <div data-role="progress" data-type="buffer" data-value="40" data-buffer="70"></div>
+
+        <h3>Rating</h3>
+        <input data-role="rating">
+
+        <h3>Tree</h3>
+        <ul data-role="tree" class="tree">
+            <li><div class="tree-node">Root</div>
+                <ul class="tree-children">
+                    <li><div class="tree-node" id="node1">Child 1</div></li>
+                </ul>
+            </li>
+        </ul>
+        <button class="btn primary" onclick="Tree.addNode(document.getElementById('node1').parentElement, 'New Subnode')">Add Node</button>
+
+        <h3>Context Menu</h3>
+        <div class="card" data-context-menu="myMenu">
+            <div class="card-content">Right-click me!</div>
+        </div>
+
+        <ul id="myMenu" style="display:none;">
+            <li data-icon="🏠" data-hotkey="Ctrl+H" onclick="alert('Home')">Home</li>
+            <li data-icon="✏️" onclick="alert('Edit')">Edit</li>
+        </ul>
+
+        <h3>Panels</h3>
+        <div data-role="panel" data-title-caption="Panel Title">
+            <div class="panel-content">
+                Panel content with a title
+            </div>
+        </div>
+
+        <h3>Toolbar</h3>
+        <div class="toolbar" style="margin-bottom: 10px;">
+            <button class="tool-button">🏠</button>
+            <button class="tool-button">✏️</button>
+            <button class="tool-button">🔍</button>
+        </div>
+
+        <div class="toolbar vertical" style="margin-bottom: 10px;">
+            <button class="tool-button">🏠</button>
+            <button class="tool-button">✏️</button>
+            <button class="tool-button">🔍</button>
+        </div>
+
+        <div class="toolbar movable" data-caption="Tools">
+            <button class="tool-button">🏠</button>
+            <button class="tool-button">✏️</button>
+            <button class="tool-button">🔍</button>
+        </div>
+
+        <h3>Remark</h3>
+        <div class="remark primary">This is a primary remark.</div>
+        <div class="remark secondary">This is a secondary remark.</div>
+        <div class="remark success">This is a success remark.</div>
+        <div class="remark warning">This is a warning remark.</div>
+        <div class="remark alert">This is an alert remark.</div>
+        <div class="remark info">This is an info remark.</div>
+
+        <h3>Responsive Grid</h3>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 4</div></div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 4</div></div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card"><div class="card-content">Col 4</div></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="card"><div class="card-content">Col 6</div></div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card"><div class="card-content">Col 6</div></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 3</div></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 3</div></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 3</div></div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card"><div class="card-content">Col 3</div></div>
+            </div>
+        </div>
+
+        <h3>Step List</h3>
+        <ol class="step-list">
+            <li>First step in the process</li>
+            <li>Second step in the process</li>
+            <li>Third step in the process</li>
+        </ol>
+
+        <h3>Tooltip</h3>
+        <div style="margin-bottom: 20px;">
+            <button class="btn primary" data-tooltip="true" data-tooltip-message="Top!" data-tooltip-position="top">Top</button>
+            <button class="btn primary" data-tooltip="true" data-tooltip-message="Right!" data-tooltip-position="right">Right</button>
+            <button class="btn primary" data-tooltip="true" data-tooltip-message="Bottom!" data-tooltip-position="bottom">Bottom</button>
+            <button class="btn primary" data-tooltip="true" data-tooltip-message="Left!" data-tooltip-position="left">Left</button>
+        </div>
+    </div>
+  <script src="frankui.bundle.min.js"></script>
+  <script>
+  function downloadTheme() {
+            submitThemeForm('download.php');
+        }
+
+        function submitThemeForm(actionPath) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = actionPath;
+
+            const fields = [
+                'primary-color',
+                'secondary-color',
+                'text-color',
+                'bg-color',
+                'success-color',
+                'warning-color',
+                'alert-color',
+                'info-color',
+                'gutter',
+                'font-name',
+                'font-size',
+                'line-height',
+                'font-style',
+                'font-weight'
+            ];
+
+            fields.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = id;
+                    hiddenInput.value = input.value;
+                    form.appendChild(hiddenInput);
+                }
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+            form.remove();
+        }
+
+        // Load saved settings
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('frankui-theme');
+            if (savedTheme) {
+                const settings = JSON.parse(savedTheme);
+                const root = document.documentElement;
+
+                // Restore theme attribute
+                if (settings['data-theme']) {
+                    root.setAttribute('data-theme', settings['data-theme']);
+                }
+
+                // Restore form inputs
+                for (const [key, value] of Object.entries(settings)) {
+                    if (key !== 'data-theme') {
+                        const input = document.getElementById(key.replace('--', ''));
+                        if (input) input.value = value.replace('px', '');
+                    }
+                }
+                // Apply the styles
+                updateTheme(false);
+
+                // Clear any leftover inline styles on the root element
+                root.style.cssText = '';
+            }
+
+            // Initialize fancy select
+            const fancySelect = document.getElementById('test-fancy-select');
+            if (fancySelect && window.Select && typeof window.Select.fancy === 'function') {
+                window.Select.fancy(fancySelect);
+            }
+
+            // Initialize fancy multi select
+            const fancyMultiSelect = document.getElementById('test-fancy-multi-select');
+            if (fancyMultiSelect && window.Select && typeof window.Select.multifancy === 'function') {
+                window.Select.multifancy(fancyMultiSelect);
+            }
+        };
+
+        function updateTheme(persist = true) {
+            const root = document.documentElement;
+            
+            // Check if the customizer inputs exist on this page
+            const primaryColorEl = document.getElementById('primary-color');
+            if (!primaryColorEl) {
+                // Apply the theme variables directly from localStorage if they exist
+                const savedTheme = localStorage.getItem('frankui-theme');
+                if (savedTheme) {
+                    const settings = JSON.parse(savedTheme);
+                    let cssText = ':root { ';
+                    for (const [key, value] of Object.entries(settings)) {
+                        if (key !== 'data-theme') {
+                            cssText += `${key}: ${value}; `;
+                        }
+                    }
+                    cssText += '}';
+                    const styleTag = document.getElementById('custom-theme-styles');
+                    if (styleTag) styleTag.innerHTML = cssText;
+                }
+                return;
+            }
+
+            const settings = {
+                '--primary-color': document.getElementById('primary-color').value,
+                '--secondary-color': document.getElementById('secondary-color').value,
+                '--text-color': document.getElementById('text-color').value,
+                '--bg-color': document.getElementById('bg-color').value,
+                '--success-color': document.getElementById('success-color').value,
+                '--warning-color': document.getElementById('warning-color').value,
+                '--alert-color': document.getElementById('alert-color').value,
+                '--info-color': document.getElementById('info-color').value,
+                '--gutter': document.getElementById('gutter').value + 'px',
+                '--font-name': document.getElementById('font-name').value,
+                '--font-size': document.getElementById('font-size').value,
+                '--line-height': document.getElementById('line-height').value,
+                '--font-style': document.getElementById('font-style').value,
+                '--font-weight': document.getElementById('font-weight').value
+            };
+
+            // Construct CSS text instead of setting inline styles
+            let cssText = ':root { ';
+            for (const [key, value] of Object.entries(settings)) {
+                cssText += `${key}: ${value}; `;
+            }
+            cssText += '}';
+
+            // Inject into the <style> tag
+            const styleTag = document.getElementById('custom-theme-styles');
+            if (styleTag) styleTag.innerHTML = cssText;
+
+            if (persist) {
+                settings['data-theme'] = root.getAttribute('data-theme');
+                localStorage.setItem('frankui-theme', JSON.stringify(settings));
+            }
+        }
+
+        window.addEventListener('themechanged', (e) => {
+            const nextTheme = e.detail.theme;
+            const root = document.documentElement;
+
+            root.style.cssText = '';
+
+            const themeDefaults = {
+                light: {
+                    'primary-color': '#0078d7',
+                    'secondary-color': '#f0f0f0',
+                    'text-color': '#333333',
+                    'bg-color': '#ffffff',
+                    'success-color': '#28a745',
+                    'warning-color': '#fd7e14',
+                    'alert-color': '#dc3545',
+                    'info-color': '#17a2b8',
+                    'gutter': '10',
+                    'font-name': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                    'font-size': '1rem',
+                    'line-height': '1.5',
+                    'font-style': 'normal',
+                    'font-weight': '400'
+                },
+                dark: {
+                    'primary-color': '#005a9e',
+                    'secondary-color': '#333333',
+                    'text-color': '#eeeeee',
+                    'bg-color': '#1a1a1a',
+                    'success-color': '#28a745',
+                    'warning-color': '#fd7e14',
+                    'alert-color': '#dc3545',
+                    'info-color': '#17a2b8',
+                    'gutter': '10',
+                    'font-name': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                    'font-size': '1rem',
+                    'line-height': '1.5',
+                    'font-style': 'normal',
+                    'font-weight': '400'
+                }
+            };
+
+            const defaults = themeDefaults[nextTheme];
+            for (const [id, val] of Object.entries(defaults)) {
+                const input = document.getElementById(id);
+                if (input) input.value = val;
+            }
+
+            updateTheme();
+        });
+
+  </script>
+  </body>
+
+</html>

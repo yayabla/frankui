@@ -1,0 +1,61 @@
+/* Bulls Component Stylesheet */
+
+[data-role="bull"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    margin-right: 6px;
+    box-sizing: border-box;
+}
+
+.bull-svg {
+    display: block;
+    overflow: visible;
+}
+
+/* Colors mapped to standard framework tokens */
+.bull-color-success {
+    fill: var(--success-color, #28a745);
+}
+
+.bull-color-warning {
+    fill: var(--warning-color, #fd7e14);
+}
+
+.bull-color-danger {
+    fill: var(--alert-color, #dc3545);
+}
+
+.bull-color-info {
+    fill: var(--primary-color, #007bff);
+}
+
+.bull-stroke-warning {
+    stroke: var(--warning-color, #fd7e14);
+}
+
+/* Glowing Bulb style */
+.bull-glow {
+    filter: drop-shadow(0 0 3px currentColor);
+    transform-origin: center;
+    animation: bull-pulse 2s infinite ease-in-out;
+}
+
+/* Make currentColor resolve properly for drop-shadows */
+.bull-color-success.bull-glow { color: var(--success-color, #28a745); }
+.bull-color-warning.bull-glow { color: var(--warning-color, #fd7e14); }
+.bull-color-danger.bull-glow { color: var(--alert-color, #dc3545); }
+.bull-color-info.bull-glow { color: var(--primary-color, #007bff); }
+
+@keyframes bull-pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
