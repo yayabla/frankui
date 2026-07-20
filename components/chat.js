@@ -40,10 +40,14 @@ const Chat = {
             // Render and insert avatar element dynamically
             let avatarEl = null;
             if (options.avatar) {
-                avatarEl = document.createElement('img');
-                avatarEl.className = 'chat-avatar';
-                avatarEl.alt = 'avatar';
-                avatarEl.src = options.avatar;
+                const avatarUrl = String(options.avatar).trim();
+                // Block javascript: and other executable protocol schemes
+                if (!/^\s*(javascript|data|vbscript):/i.test(avatarUrl)) {
+                    avatarEl = document.createElement('img');
+                    avatarEl.className = 'chat-avatar';
+                    avatarEl.alt = 'avatar';
+                    avatarEl.src = avatarUrl;
+                }
             } else if (options.initials) {
                 avatarEl = document.createElement('div');
                 avatarEl.className = 'chat-avatar-initials';
