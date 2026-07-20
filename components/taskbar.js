@@ -800,8 +800,18 @@ const Taskbar = {
             viewport.innerHTML = `<div style="padding: 10px; text-align: center; color: #666; font-size: 13px;">🌐 Mock Loading <b>${escapeHtml(url)}</b>...</div>`;
             
             setTimeout(() => {
-                const domain = url.replace('https://', '').replace('http://', '').split('/')[0];
-                if (domain.includes('google.com')) {
+                let hostname = '';
+                try {
+                    const parsed = new URL(url);
+                    hostname = parsed.hostname.toLowerCase();
+                } catch (e) {
+                    hostname = url.replace('https://', '').replace('http://', '').split('/')[0].toLowerCase();
+                }
+
+                const isGoogle = hostname === 'google.com' || hostname.endsWith('.google.com');
+                const isWikipedia = hostname === 'wikipedia.org' || hostname.endsWith('.wikipedia.org');
+
+                if (isGoogle) {
                     viewport.innerHTML = `
                         <div class="mock-google" style="text-align: center; margin-top: 40px; color: #333;">
                             <h1 style="color: #4285F4; font-size: 32px; font-family: sans-serif; margin-bottom: 20px;">Google</h1>
@@ -818,7 +828,7 @@ const Taskbar = {
                             </div>
                         </div>
                     `;
-                } else if (domain.includes('wikipedia.org')) {
+                } else if (isWikipedia) {
                     viewport.innerHTML = `
                         <div style="color: #222; font-family: serif; padding: 10px;">
                             <h2 style="border-bottom: 1px solid #a2a9b1; font-weight: normal; font-size: 26px;">FrankUI</h2>
@@ -829,7 +839,7 @@ const Taskbar = {
                 } else {
                     viewport.innerHTML = `
                         <div style="padding: 20px; text-align: center; color: #333;">
-                            <h3 style="margin-bottom: 10px;">Successfully Connected to ${domain}</h3>
+                            <h3 style="margin-bottom: 10px;">Successfully Connected to ${hostname}</h3>
                             <p style="font-size: 13px; color: #666; line-height: 1.5;">This is a sandbox viewport simulation. The mock website is rendering inside a safe environment.</p>
                             <div class="card" style="margin-top: 15px; text-align: left; padding: 10px; background: #f8f9fa;">
                                 <b>Domain details:</b><br>
